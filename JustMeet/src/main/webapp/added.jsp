@@ -33,10 +33,10 @@
 </head>
 <body>
            <%@include file="assets/header.html"%>
+           <form:form method="POST" modelAttribute="sendRequest" class="form-signin"> 
+           Sei stato inserito con successo all'evento ${sendRequest.titolo}.
            
-           Sei stato inserito con successo
-           
-           
+           </form:form>
            
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
