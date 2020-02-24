@@ -57,10 +57,7 @@ public class Event {
 	private Date scadenzaPagamento;
     @Column(name="citta")
     private String citta;
-    //DSfsfsasdasfasfawfawefwFWE
-    @Column(name="prova")
-    private String prova;
-    //DSfsfsasdasfasfawfawefwFWE
+    
     @Column(name="userOwner")
     private String owner;
 
