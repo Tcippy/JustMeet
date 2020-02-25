@@ -95,6 +95,7 @@ public class EventController {
 		Event evento = eventService.findById(id);
 		User u = userService.findByUsername(user.getName());
 		u.getEventsPartecipated().add(evento);
+		u.getPassword();
 		userService.save(u);
 		System.out.println(u.getEventsPartecipated());
 		return "addRequest";
