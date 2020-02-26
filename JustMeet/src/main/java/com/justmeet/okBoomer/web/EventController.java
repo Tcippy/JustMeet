@@ -23,10 +23,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.justmeet.okBoomer.model.Category;
 import com.justmeet.okBoomer.model.Event;
+import com.justmeet.okBoomer.model.EventUser;
 import com.justmeet.okBoomer.model.User;
 import com.justmeet.okBoomer.repository.EventRepository;
+import com.justmeet.okBoomer.repository.EventUserRepository;
 import com.justmeet.okBoomer.repository.UserRepository;
 import com.justmeet.okBoomer.service.EventService;
+import com.justmeet.okBoomer.service.EventUserService;
 import com.justmeet.okBoomer.service.UserService;
 
 @Controller
@@ -36,6 +39,8 @@ public class EventController {
 
 	@Autowired
 	UserService userService;
+	@Autowired
+	EventUserService eUService;
 
 	@GetMapping(value = "/newEvent")
 	public String createEvent(Model model) {
@@ -90,17 +95,7 @@ public class EventController {
 
 	}
 
-	@GetMapping("/addRequest")
-	public String addRequest(@RequestParam long id, Model model, Principal user) {
-		Event evento = eventService.findById(id);
-		User u = userService.findByUsername(user.getName());
-		u.getEventsPartecipated().add(evento);
-		
-		userService.save(u);
-		System.out.println(u.getEventsPartecipated());
-		return "addRequest";
 
-	}
 
 	@GetMapping("/modifyEvents")
 	public String modifyEvent(Model model, @RequestParam long id) {
@@ -120,5 +115,7 @@ public class EventController {
 		eventService.deleteById(id);
 		return "redirect:/index.jsp";
 	}
+	
+	
 
 }

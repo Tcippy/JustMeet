@@ -66,13 +66,6 @@ public class EventServiceImpl implements EventService {
 		return u;
 	}
 
-	/*
-	 * @Override public void updateEvent(long id,String titolo, Category categoria,
-	 * Date dataEvento, String descrizione, String citta, Date scadenzaPagamento,
-	 * float prezzo) { // TODO Auto-generated method stub
-	 * repository.updateEvent(id,titolo, categoria, dataEvento, descrizione, citta,
-	 * scadenzaPagamento, prezzo); }
-	 */
 
 	public void deleteById(long id) {
 		repository.deleteById(id);

@@ -20,6 +20,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -67,9 +68,8 @@ public class Event {
 	private Status stato;
 
 	
-	@ManyToMany(mappedBy="eventsPartecipated")
-	private List<User> partecipantList;
-	//=new ArrayList<User>();
+	@OneToMany(mappedBy="event")
+	private List<EventUser> eventsPartecipated;
 
 
 
@@ -155,13 +155,13 @@ public class Event {
 
 
 
-    public List<User> getPartecipantList() {
-		return partecipantList;
+    public List<EventUser> getEventsPartecipated() {
+		return eventsPartecipated;
 	}
 
 
-	public void setPartecipantList(List<User> partecipantList) {
-		this.partecipantList = partecipantList;
+	public void setEventsPartecipated(List<EventUser> eventsPartecipated) {
+		this.eventsPartecipated = eventsPartecipated;
 	}
 
 

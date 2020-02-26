@@ -47,5 +47,6 @@ public interface EventService {
 	void deleteById(long id);
 
 	Event findById(long id);
+	
 
 }
